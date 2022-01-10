@@ -36,7 +36,7 @@ export default function App() {
       {/* <TextInput style={styles.filed} value={age} onChangeText={text => change(text)} keyboard-type ='decimal-pad'></TextInput> */}
     
       <Text style={styles.field}>HR limit</Text>
-      <TextInput style={styles.field} value={age} onChangeText={age => setLower()} keyboard-type ='decimal-pad'></TextInput>
+      <TextInput style={styles.field} value={age} onChangeText={age => defineLow()} keyboard-type ='decimal-pad'></TextInput>
 
 
    </View>
