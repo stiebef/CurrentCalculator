@@ -6,18 +6,24 @@ export default function App() {
   const [euros,setEuros] = useState('');
   const[pounds, setPounds] = useState(0);
 
-  function calculate() {
-    const result = euros.replace(',','.') * 0.9;
+  function change(text) {
+    setEuros(text)
+    const result = text.replace(',', '.') * 0.9;
     setPounds(result);
   }
+//  function calculate() {
+//    const result = euros.replace(',','.') * 0.9;
+//    setPounds(result);
+//  }
  return( 
    <View style={styles.container}>
      <Text style ={styles.field}>Euros</Text>
-     <TextInput style={styles.field} value={euros} onChangeText={text => setEuros(text)}
-     keyboardType='decimal-pad'/>
+    {/*  <TextInput style={styles.field} value={euros} onChangeText={text => setEuros(text)} */}
+    <TextInput style={styles.filed} value={euros} onChangeText={text => change(text)} keyboard-type ='decimal-pad'></TextInput>
+    
      <Text style={styles.field}>Punds</Text>
      <Text style={styles.field}>{pounds.toFixed(2)}</Text>
-     <Button onPress={calculate} title="Calculate"></Button>
+    {/* <Button onPress={calculate} title="Calculate"></Button> */}
    </View>
  );
    
