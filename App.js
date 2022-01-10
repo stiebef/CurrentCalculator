@@ -7,9 +7,9 @@ export default function App() {
   const[lower, setLower] = useState(0);
   const[lhigher, setHigher] = useState(0);
 
-  function defineLow() {
-    
-    const result = (220 - age) * 0.65;
+  function defineLow(text) {
+    setAge(text)
+    const result = (220 - text) * 0.65;
     
     setLower(result);
   }
@@ -36,7 +36,7 @@ export default function App() {
       {/* <TextInput style={styles.filed} value={age} onChangeText={text => change(text)} keyboard-type ='decimal-pad'></TextInput> */}
     
       <Text style={styles.field}>HR limit</Text>
-      <TextInput style={styles.field} value={age} onChangeText={age => defineLow()} keyboard-type ='decimal-pad'></TextInput>
+      <TextInput style={styles.field} value={age} onChangeText={text => defineLow(text)} keyboard-type ='decimal-pad'></TextInput>
 
 
    </View>
