@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
 export default function App() {
   const [euros,setEuros] = useState('');
-  const[punds, setPounds] = useState(0);
+  const[pounds, setPounds] = useState(0);
 
   function calculate() {
     const result = euros.replace(',','.') * 0.9;
