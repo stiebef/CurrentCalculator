@@ -2,23 +2,20 @@ import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
+
 export default function App() {
   const [age,setAge] = useState('');
   const[lower, setLower] = useState(0);
-  const[lhigher, setHigher] = useState(0);
+  const[higher, setHigher] = useState(0);
+  const[result, setResult] = useState(0);
 
-  function defineLow(text) {
-    setAge(text)
-    const result = (220 - text) * 0.65;
+  function change() {
     
-    setLower(result);
-  }
+    const result_lower = (220 - age) * 0.65;
+    const result_higher = (220 - age) * 0.85;
+    setLower(result_lower);
+    setHigher(result_higher);
 
-  function defineHigh() {
-    
-    const result = (220 - age) * 0.85;
-    
-    setHigher(result);
   }
 //  function change(text) {
  //   setEuros(text)
@@ -30,16 +27,16 @@ export default function App() {
 //    setPounds(result);
 //  }
  return( 
-   <View style={styles.container}>   
-    <Text style ={styles.field}>Age</Text>
-      <TextInput style={styles.field} value={age} onChangeText={text => setAge(text)} keyboard-type ='decimal-pad'></TextInput>
-      {/* <TextInput style={styles.filed} value={age} onChangeText={text => change(text)} keyboard-type ='decimal-pad'></TextInput> */}
-    
-      <Text style={styles.field}>HR limit</Text>
-      <TextInput style={styles.field} value={age} onChangeText={text => defineLow(text)} keyboard-type ='decimal-pad'></TextInput>
+  <View style={styles.container}>
+  <Text>Heart rate limits</Text>
+  {/* <Button onPress={change} title="Calculate"></Button>  */}
+  
+  <Text>age: </Text>
+  <TextInput style={styles.field} value={age} onChangeText={text => setAge(text)} keyboardType='decimal-pad'/>
 
-
-   </View>
+  <Button onPress={change} title="Calculate"></Button>
+  <Text style={styles.field}>{lower.toFixed(0)} - {higher.toFixed(0)}</Text>
+</View>
 );
    
    
